@@ -9,22 +9,24 @@
 /* Begin PBXBuildFile section */
 		D03F65DD2635B45300BDBB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F65DC2635B45300BDBB0D /* AppDelegate.swift */; };
 		D03F65DF2635B45300BDBB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F65DE2635B45300BDBB0D /* SceneDelegate.swift */; };
-		D03F65E12635B45300BDBB0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F65E02635B45300BDBB0D /* ViewController.swift */; };
+		D03F65E12635B45300BDBB0D /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F65E02635B45300BDBB0D /* DiaryViewController.swift */; };
 		D03F65E42635B45300BDBB0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03F65E22635B45300BDBB0D /* Main.storyboard */; };
 		D03F65E62635B45400BDBB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03F65E52635B45400BDBB0D /* Assets.xcassets */; };
 		D03F65E92635B45400BDBB0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03F65E72635B45400BDBB0D /* LaunchScreen.storyboard */; };
+		D03F65F62635DE1600BDBB0D /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F65F52635DE1600BDBB0D /* ComposeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D03F65D92635B45300BDBB0D /* FoodDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03F65DC2635B45300BDBB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D03F65DE2635B45300BDBB0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D03F65E02635B45300BDBB0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D03F65E02635B45300BDBB0D /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		D03F65E32635B45300BDBB0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D03F65E52635B45400BDBB0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D03F65E82635B45400BDBB0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D03F65EA2635B45400BDBB0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D03F65F12635B82700BDBB0D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		D03F65F52635DE1600BDBB0D /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,8 @@
 			children = (
 				D03F65DC2635B45300BDBB0D /* AppDelegate.swift */,
 				D03F65DE2635B45300BDBB0D /* SceneDelegate.swift */,
-				D03F65E02635B45300BDBB0D /* ViewController.swift */,
+				D03F65E02635B45300BDBB0D /* DiaryViewController.swift */,
+				D03F65F52635DE1600BDBB0D /* ComposeViewController.swift */,
 				D03F65E22635B45300BDBB0D /* Main.storyboard */,
 				D03F65E52635B45400BDBB0D /* Assets.xcassets */,
 				D03F65E72635B45400BDBB0D /* LaunchScreen.storyboard */,
@@ -139,9 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D03F65E12635B45300BDBB0D /* ViewController.swift in Sources */,
+				D03F65E12635B45300BDBB0D /* DiaryViewController.swift in Sources */,
 				D03F65DD2635B45300BDBB0D /* AppDelegate.swift in Sources */,
 				D03F65DF2635B45300BDBB0D /* SceneDelegate.swift in Sources */,
+				D03F65F62635DE1600BDBB0D /* ComposeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
