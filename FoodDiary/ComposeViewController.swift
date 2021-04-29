@@ -8,6 +8,9 @@
 import UIKit
 
 class ComposeViewController: UIViewController {
+    
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var caloriesTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,24 +18,25 @@ class ComposeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     @IBAction func cancelButtonHandler() {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func doneButtonHandler() {
-        //TODO: handle done
-        dismiss(animated: true, completion: nil)
+        let name = nameTextField.text ?? ""
+        let caloriesText = caloriesTextField.text ?? ""
+        let calories = Int(caloriesText) ?? 0
+        let food = Food(name: name, calories: calories)
+        
+        if let tabVC = presentingViewController as? UITabBarController {
+            if let diaryVC = tabVC.viewControllers?[0] as? DiaryViewController {
+                diaryVC.foods.append(food)
+                diaryVC.tableView.reloadData()
+            }
+        } else {
+            print("Error")
+        }
+        
+        self.dismiss(animated: true, completion: nil)
     }
-
 }

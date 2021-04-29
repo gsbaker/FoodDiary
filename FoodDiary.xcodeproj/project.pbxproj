@@ -14,6 +14,8 @@
 		D03F65E62635B45400BDBB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03F65E52635B45400BDBB0D /* Assets.xcassets */; };
 		D03F65E92635B45400BDBB0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03F65E72635B45400BDBB0D /* LaunchScreen.storyboard */; };
 		D03F65F62635DE1600BDBB0D /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F65F52635DE1600BDBB0D /* ComposeViewController.swift */; };
+		D03F65F92635E06600BDBB0D /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F65F82635E06600BDBB0D /* Food.swift */; };
+		D03F65FC2635E74D00BDBB0D /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F65FB2635E74D00BDBB0D /* FoodTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		D03F65EA2635B45400BDBB0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D03F65F12635B82700BDBB0D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D03F65F52635DE1600BDBB0D /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		D03F65F82635E06600BDBB0D /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		D03F65FB2635E74D00BDBB0D /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +67,9 @@
 				D03F65DC2635B45300BDBB0D /* AppDelegate.swift */,
 				D03F65DE2635B45300BDBB0D /* SceneDelegate.swift */,
 				D03F65E02635B45300BDBB0D /* DiaryViewController.swift */,
+				D03F65FB2635E74D00BDBB0D /* FoodTableViewCell.swift */,
 				D03F65F52635DE1600BDBB0D /* ComposeViewController.swift */,
+				D03F65F82635E06600BDBB0D /* Food.swift */,
 				D03F65E22635B45300BDBB0D /* Main.storyboard */,
 				D03F65E52635B45400BDBB0D /* Assets.xcassets */,
 				D03F65E72635B45400BDBB0D /* LaunchScreen.storyboard */,
@@ -144,8 +150,10 @@
 			files = (
 				D03F65E12635B45300BDBB0D /* DiaryViewController.swift in Sources */,
 				D03F65DD2635B45300BDBB0D /* AppDelegate.swift in Sources */,
+				D03F65F92635E06600BDBB0D /* Food.swift in Sources */,
 				D03F65DF2635B45300BDBB0D /* SceneDelegate.swift in Sources */,
 				D03F65F62635DE1600BDBB0D /* ComposeViewController.swift in Sources */,
+				D03F65FC2635E74D00BDBB0D /* FoodTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
