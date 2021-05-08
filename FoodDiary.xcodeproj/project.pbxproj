@@ -16,6 +16,7 @@
 		D03F65F62635DE1600BDBB0D /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F65F52635DE1600BDBB0D /* ComposeViewController.swift */; };
 		D03F65F92635E06600BDBB0D /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F65F82635E06600BDBB0D /* Food.swift */; };
 		D03F65FC2635E74D00BDBB0D /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F65FB2635E74D00BDBB0D /* FoodTableViewCell.swift */; };
+		D0F3ADE2263D808600B7A519 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F3ADE1263D808600B7A519 /* Entry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		D03F65F52635DE1600BDBB0D /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		D03F65F82635E06600BDBB0D /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		D03F65FB2635E74D00BDBB0D /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
+		D0F3ADE1263D808600B7A519 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				D03F65E52635B45400BDBB0D /* Assets.xcassets */,
 				D03F65E72635B45400BDBB0D /* LaunchScreen.storyboard */,
 				D03F65EA2635B45400BDBB0D /* Info.plist */,
+				D0F3ADE1263D808600B7A519 /* Entry.swift */,
 			);
 			path = FoodDiary;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F3ADE2263D808600B7A519 /* Entry.swift in Sources */,
 				D03F65E12635B45300BDBB0D /* DiaryViewController.swift in Sources */,
 				D03F65DD2635B45300BDBB0D /* AppDelegate.swift in Sources */,
 				D03F65F92635E06600BDBB0D /* Food.swift in Sources */,
