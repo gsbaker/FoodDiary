@@ -30,8 +30,13 @@ class ComposeViewController: UIViewController {
         
         if let tabVC = presentingViewController as? UITabBarController {
             if let diaryVC = tabVC.viewControllers?[0] as? DiaryViewController {
-                diaryVC.foods.append(food)
+                diaryVC.entry.add(food: food)
                 diaryVC.tableView.reloadData()
+                do {
+                    try diaryVC.saveEntry()
+                } catch {
+                    print("Something went wrong in doneButtonHandler")
+                }
             }
         } else {
             print("Error")
