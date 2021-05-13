@@ -55,42 +55,29 @@ class DiaryViewController: UIViewController, UITableViewDataSource {
     func saveEntry() throws {
         let encoder = JSONEncoder()
         let jsonData = try encoder.encode(entry)
-        let jsonString = String(data: jsonData, encoding: String.Encoding.utf16)
+        let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
         
         if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let pathWithFilename = documentDirectory.appendingPathComponent("entries.json")
             
             do {
-                try jsonString?.write(to: pathWithFilename, atomically: true, encoding: .utf16)
-            } catch {
-                // TODO: handle this error properly
-                print("Something went wrong in saveEntry()")
+                try jsonString?.write(to: pathWithFilename, atomically: true, encoding: .utf8)
+            } catch let error {
+                // TODO: handle this error properly (use catch let exception)
+                print(error.localizedDescription)
             }
         }
     }
     
     func loadEntry() -> Entry? {
-        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-        let url = NSURL(fileURLWithPath: path)
-        
-        if let pathComponent = url.appendingPathComponent("entries.json") {
-            let filePath = pathComponent.path
-            let fileManager = FileManager.default
-            
-            if fileManager.fileExists(atPath: filePath) {
-                print("File exists")
-                do {
-                    let data = try Data(contentsOf: URL(fileURLWithPath: filePath), options: .alwaysMapped)
-                    let jsonDecoder = JSONDecoder()
-                    return try jsonDecoder.decode(Entry.self, from: data)
-                } catch let error {
-                    print(error.localizedDescription)
+        if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let pathWithFilename = documentDirectory.appendingPathComponent("entries.json")
+            if let data = try? Data(contentsOf: pathWithFilename) {
+                let jsonDecoder = JSONDecoder()
+                if let jsonEntry = try? jsonDecoder.decode(Entry.self, from: data) {
+                    return jsonEntry
                 }
-            } else {
-                print("File doesn't exist")
             }
-        } else {
-            print("File path not available")
         }
         
         return nil
