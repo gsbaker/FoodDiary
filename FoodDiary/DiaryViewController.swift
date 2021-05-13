@@ -15,9 +15,21 @@ class DiaryViewController: UIViewController, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
+        
         if let savedEntry = loadEntry() {
-            entry = savedEntry
+            let currentDate = Date()
+            let savedDate = savedEntry.date
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = DateFormatter.Style.none
+            dateFormatter.dateStyle = DateFormatter.Style.short
+            
+            if dateFormatter.string(from: currentDate) == dateFormatter.string(from: savedDate) {
+                entry = savedEntry
+            } else {
+                entry = Entry()
+            }
         } else {
             entry = Entry()
         }
@@ -63,7 +75,6 @@ class DiaryViewController: UIViewController, UITableViewDataSource {
             do {
                 try jsonString?.write(to: pathWithFilename, atomically: true, encoding: .utf8)
             } catch let error {
-                // TODO: handle this error properly (use catch let exception)
                 print(error.localizedDescription)
             }
         }

@@ -34,14 +34,12 @@ class ComposeViewController: UIViewController {
                 diaryVC.tableView.reloadData()
                 do {
                     try diaryVC.saveEntry()
-                } catch {
-                    print("Something went wrong in doneButtonHandler")
+                } catch let error {
+                    print(error.localizedDescription)
                 }
             }
-        } else {
-            print("Error")
         }
         
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
