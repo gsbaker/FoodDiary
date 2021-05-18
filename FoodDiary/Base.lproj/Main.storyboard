@@ -93,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="75.669642857142847"/>
         </scene>
-        <!--View Controller-->
+        <!--History View Controller-->
         <scene sceneID="lSt-Es-dli">
             <objects>
-                <viewController id="11g-nM-Zlo" sceneMemberID="viewController">
+                <viewController id="11g-nM-Zlo" customClass="HistoryViewController" customModule="FoodDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mj6-XS-kPa">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,6 +112,44 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ocQ-q9-jmX">
                                 <rect key="frame" x="0.0" y="140" width="390" height="621"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyEntryCell" id="FTe-xE-pj6" customClass="EntryTableViewCell" customModule="FoodDiary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="67"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FTe-xE-pj6" id="QaA-j6-g6o">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="67"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yjp-VE-iC8">
+                                                    <rect key="frame" x="20" y="10" width="52" height="47"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mp8-zR-O6z">
+                                                            <rect key="frame" x="0.0" y="0.0" width="52" height="26.333333333333332"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eep-tR-M7f">
+                                                            <rect key="frame" x="0.0" y="26.333333333333336" width="52" height="20.666666666666664"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yjp-VE-iC8" firstAttribute="leading" secondItem="QaA-j6-g6o" secondAttribute="leading" constant="20" id="FUj-VE-zGs"/>
+                                                <constraint firstItem="yjp-VE-iC8" firstAttribute="top" secondItem="QaA-j6-g6o" secondAttribute="top" constant="10" id="V97-ue-fsq"/>
+                                                <constraint firstAttribute="bottom" secondItem="yjp-VE-iC8" secondAttribute="bottom" constant="10" id="mw3-nU-ebp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="caloriesLabel" destination="eep-tR-M7f" id="I4u-B8-V6Q"/>
+                                            <outlet property="dateLabel" destination="mp8-zR-O6z" id="non-2O-N1M"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oJa-7I-Uv5"/>
@@ -127,6 +165,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="ac3-uX-mCb"/>
+                    <connections>
+                        <outlet property="tableView" destination="ocQ-q9-jmX" id="kcY-89-jZ6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofb-7v-9wI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

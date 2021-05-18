@@ -30,10 +30,21 @@ class ComposeViewController: UIViewController {
         
         if let tabVC = presentingViewController as? UITabBarController {
             if let diaryVC = tabVC.viewControllers?[0] as? DiaryViewController {
-                diaryVC.entry.add(food: food)
+                let user = User.sharedInstance
+                
+                var currentEntry: Entry {
+                    get {
+                        return user.entries[user.entries.count - 1]
+                    }
+                    set {
+                        user.entries[user.entries.count - 1] = newValue
+                    }
+                }
+                
+                currentEntry.add(food: food)
                 diaryVC.tableView.reloadData()
                 do {
-                    try diaryVC.saveEntry()
+                    try diaryVC.saveUser()
                 } catch let error {
                     print(error.localizedDescription)
                 }

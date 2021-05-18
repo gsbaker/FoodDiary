@@ -12,27 +12,36 @@ class DiaryViewController: UIViewController, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
 
     var entry: Entry!
+    var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
-        if let savedEntry = loadEntry() {
-            let currentDate = Date()
-            let savedDate = savedEntry.date
-            let dateFormatter = DateFormatter()
-            dateFormatter.timeStyle = DateFormatter.Style.none
-            dateFormatter.dateStyle = DateFormatter.Style.short
-            
-            if dateFormatter.string(from: currentDate) == dateFormatter.string(from: savedDate) {
-                entry = savedEntry
+        if let savedUser = loadUser() {
+            User.sharedInstance = savedUser
+            user = User.sharedInstance
+            if let latestEntry = user.entries.last {
+                let currentDate = Date()
+                let latestDate = latestEntry.date
+                let dateFormatter = DateFormatter()
+                dateFormatter.timeStyle = DateFormatter.Style.none
+                dateFormatter.dateStyle = DateFormatter.Style.short
+                if dateFormatter.string(from: currentDate) != dateFormatter.string(from: latestDate) {
+                    let newEntry = Entry()
+                    user.addEntry(entry: newEntry)
+                }
             } else {
-                entry = Entry()
+                let newEntry = Entry()
+                user.addEntry(entry: newEntry)
             }
         } else {
-            entry = Entry()
+            user = User.sharedInstance
+            let newEntry = Entry()
+            user.addEntry(entry: newEntry)
         }
+        
         tableView.dataSource = self
     }
     
@@ -43,7 +52,7 @@ class DiaryViewController: UIViewController, UITableViewDataSource {
     // return the number of rows for the table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return entry.foods.count
+            return user.entries[user.entries.count - 1].foods.count
         }
         
         return 0
@@ -52,7 +61,7 @@ class DiaryViewController: UIViewController, UITableViewDataSource {
     // provide a cell object for each row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "diaryFoodCell", for: indexPath) as! FoodTableViewCell
-        let food = entry.foods[indexPath.row]
+        let food = user.entries[user.entries.count - 1].foods[indexPath.row]
         cell.update(with: food)
         return cell
     }
@@ -64,13 +73,13 @@ class DiaryViewController: UIViewController, UITableViewDataSource {
         show(composeVC, sender: self)
     }
     
-    func saveEntry() throws {
+    func saveUser() throws {
         let encoder = JSONEncoder()
-        let jsonData = try encoder.encode(entry)
+        let jsonData = try encoder.encode(user)
         let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
         
         if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let pathWithFilename = documentDirectory.appendingPathComponent("entries.json")
+            let pathWithFilename = documentDirectory.appendingPathComponent("users.json")
             
             do {
                 try jsonString?.write(to: pathWithFilename, atomically: true, encoding: .utf8)
@@ -80,13 +89,13 @@ class DiaryViewController: UIViewController, UITableViewDataSource {
         }
     }
     
-    func loadEntry() -> Entry? {
+    func loadUser() -> User? {
         if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let pathWithFilename = documentDirectory.appendingPathComponent("entries.json")
+            let pathWithFilename = documentDirectory.appendingPathComponent("users.json")
             if let data = try? Data(contentsOf: pathWithFilename) {
                 let jsonDecoder = JSONDecoder()
-                if let jsonEntry = try? jsonDecoder.decode(Entry.self, from: data) {
-                    return jsonEntry
+                if let jsonUser = try? jsonDecoder.decode(User.self, from: data) {
+                    return jsonUser
                 }
             }
         }

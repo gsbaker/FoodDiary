@@ -16,6 +16,9 @@
 		D03F65F62635DE1600BDBB0D /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F65F52635DE1600BDBB0D /* ComposeViewController.swift */; };
 		D03F65F92635E06600BDBB0D /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F65F82635E06600BDBB0D /* Food.swift */; };
 		D03F65FC2635E74D00BDBB0D /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F65FB2635E74D00BDBB0D /* FoodTableViewCell.swift */; };
+		D0E657B1264E88ED00A68CDC /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E657B0264E88ED00A68CDC /* EntryTableViewCell.swift */; };
+		D0E657B5264E898300A68CDC /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E657B4264E898300A68CDC /* HistoryViewController.swift */; };
+		D0E657B7264E8C0000A68CDC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E657B6264E8C0000A68CDC /* User.swift */; };
 		D0F3ADE2263D808600B7A519 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F3ADE1263D808600B7A519 /* Entry.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +35,9 @@
 		D03F65F52635DE1600BDBB0D /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		D03F65F82635E06600BDBB0D /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		D03F65FB2635E74D00BDBB0D /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
+		D0E657B0264E88ED00A68CDC /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
+		D0E657B4264E898300A68CDC /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		D0E657B6264E8C0000A68CDC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D0F3ADE1263D808600B7A519 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +79,9 @@
 				D03F65F52635DE1600BDBB0D /* ComposeViewController.swift */,
 				D03F65F82635E06600BDBB0D /* Food.swift */,
 				D03F65E22635B45300BDBB0D /* Main.storyboard */,
+				D0E657B4264E898300A68CDC /* HistoryViewController.swift */,
+				D0E657B6264E8C0000A68CDC /* User.swift */,
+				D0E657B0264E88ED00A68CDC /* EntryTableViewCell.swift */,
 				D03F65E52635B45400BDBB0D /* Assets.xcassets */,
 				D03F65E72635B45400BDBB0D /* LaunchScreen.storyboard */,
 				D03F65EA2635B45400BDBB0D /* Info.plist */,
@@ -151,12 +160,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0E657B1264E88ED00A68CDC /* EntryTableViewCell.swift in Sources */,
 				D0F3ADE2263D808600B7A519 /* Entry.swift in Sources */,
 				D03F65E12635B45300BDBB0D /* DiaryViewController.swift in Sources */,
 				D03F65DD2635B45300BDBB0D /* AppDelegate.swift in Sources */,
 				D03F65F92635E06600BDBB0D /* Food.swift in Sources */,
 				D03F65DF2635B45300BDBB0D /* SceneDelegate.swift in Sources */,
+				D0E657B5264E898300A68CDC /* HistoryViewController.swift in Sources */,
 				D03F65F62635DE1600BDBB0D /* ComposeViewController.swift in Sources */,
+				D0E657B7264E8C0000A68CDC /* User.swift in Sources */,
 				D03F65FC2635E74D00BDBB0D /* FoodTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
