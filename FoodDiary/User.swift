@@ -28,4 +28,20 @@ class User: Codable {
         
         return entries.last
     }
+    
+    func getValidEntries() -> [Entry]? {
+        var validEntries: [Entry] = []
+        
+        for entry in entries {
+            if entry.getTotalCalories() > 0 {
+                validEntries.append(entry)
+            }
+        }
+        
+        if validEntries.count == 0 {
+            return nil
+        }
+        
+        return validEntries
+    }
 }

@@ -24,7 +24,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return user.entries.count
+            if let validEntries = user.getValidEntries() {
+                return validEntries.count
+            } else {
+                return 0
+            }
         }
         
         return 0
@@ -34,9 +38,15 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyEntryCell", for: indexPath) as! EntryTableViewCell
 
         // configure the cell's contents
-        let entry = user.entries[indexPath.row]
-        cell.update(with: entry)
+        if let validEntries = user.getValidEntries() {
+            let entry = validEntries[indexPath.row]
+            if entry.getTotalCalories() > 0 {
+                cell.update(with: entry)
+            }
+        }
+        
         return cell
+        
     }
     
 
