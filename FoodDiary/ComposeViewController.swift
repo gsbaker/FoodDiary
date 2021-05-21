@@ -9,6 +9,7 @@ import UIKit
 
 class ComposeViewController: UIViewController {
     
+    @IBOutlet var doneBarButton: UIBarButtonItem!
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var caloriesTextField: UITextField!
 
@@ -16,6 +17,29 @@ class ComposeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        doneBarButton.isEnabled = false
+        [nameTextField, caloriesTextField].forEach({
+            $0?.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+        })
+    }
+    
+    @objc func editingChanged(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        
+        guard
+            let name = nameTextField.text, !name.isEmpty,
+            let calories = caloriesTextField.text, !calories.isEmpty
+        
+        else {
+            doneBarButton.isEnabled = false
+            return
+        }
+        doneBarButton.isEnabled = true
     }
     
     @IBAction func cancelButtonHandler() {
@@ -29,7 +53,8 @@ class ComposeViewController: UIViewController {
         let food = Food(name: name, calories: calories)
         
         if let tabVC = presentingViewController as? UITabBarController {
-            if let diaryVC = tabVC.viewControllers?[0] as? DiaryViewController {
+            if let diaryVC = tabVC.viewControllers?[0] as? DiaryViewController,
+               let historyVC = tabVC.viewControllers?[1] as? HistoryViewController {
                 let user = User.sharedInstance
                 
                 var currentEntry: Entry {
@@ -43,6 +68,7 @@ class ComposeViewController: UIViewController {
                 
                 currentEntry.add(food: food)
                 diaryVC.tableView.reloadData()
+                historyVC.tableView.reloadData()
                 do {
                     try diaryVC.saveUser()
                 } catch let error {
